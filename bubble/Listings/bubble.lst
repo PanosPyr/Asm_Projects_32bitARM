@@ -1,0 +1,167 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             SIMPLE_PROG,CODE,READONLY
+    2 00000000         
+    3 00000000         __main  PROC
+    4 00000000                 EXPORT           __main
+    5 00000000                 IMPORT           __heap_base
+    6 00000000         
+    7 00000000 2101            movs             R1,#0x01
+    8 00000002 2202            movs             R2, #0x02
+    9 00000004         
+   10 00000004 20FF            movs             r0,#0xff
+   11 00000006 490C            ldr              r1, =__heap_base
+   12 00000008         mem_fill
+   13 00000008 7008            STRB             r0, [r1]
+   14 0000000A 1C49            adds             r1, r1, #+1
+   15 0000000C 1E40            subs             r0,r0,#1
+   16 0000000E D5FB            BPL              mem_fill
+   17 00000010         
+   18 00000010         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   19 00000010         extern_loop
+   20 00000010 2300            movs             r3, #0x00   ; loop counter
+   21 00000012 2000            movs             r0, #0x00   ; swap flag
+   22 00000014 4908            ldr              r1,=__heap_base
+   23 00000016 1C4A            adds             r2, r1, #1
+   24 00000018         main_loop
+   25 00000018         
+   26 00000018         ;;;;add code here
+   27 00000018         
+   28 00000018 780C            ldrb             r4, [r1]
+   29 0000001A 7815            ldrb             r5, [r2]
+   30 0000001C         
+   31 0000001C 42AC            cmp              r4, r5
+   32 0000001E DD02            BLE              skip_swap
+   33 00000020 700D            strb             r5, [r1]
+   34 00000022 7014            strb             r4, [r2]
+   35 00000024 1C40            adds             r0, r0, #0x01
+   36 00000026         skip_swap
+   37 00000026 1C49            adds             r1, r1, #0x01
+   38 00000028 1C52            adds             r2, r2, #0x01
+   39 0000002A 1C5B            adds             r3, r3, #0x01
+   40 0000002C         
+   41 0000002C 2BFF            cmp              r3, #0xFF
+   42 0000002E D1F3            bne              main_loop
+   43 00000030         
+   44 00000030         check_loop
+   45 00000030 2800            cmp              r0,#0x00
+   46 00000032 D1ED            bne              extern_loop
+   47 00000034         exit
+   48 00000034         
+   49 00000034         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   50 00000034         
+   51 00000034 4770            BX               R14
+   52 00000036                 ENDP
+   53 00000036                 END
+              00 00 00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\bubble.d -o.\objects\bubble.o -I.\RTE\_Target_1 -IC:\
+Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include -IC:
+\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM4\Incl
+ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 527" --pred
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+efine="_RTE_ SETA 1" --predefine="ARMCM4_FP SETA 1" --list=.\listings\bubble.ls
+t bubble.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+SIMPLE_PROG 00000000
+
+Symbol: SIMPLE_PROG
+   Definitions
+      At line 1 in file bubble.s
+   Uses
+      None
+Comment: SIMPLE_PROG unused
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 3 in file bubble.s
+   Uses
+      At line 4 in file bubble.s
+Comment: __main used once
+check_loop 00000030
+
+Symbol: check_loop
+   Definitions
+      At line 44 in file bubble.s
+   Uses
+      None
+Comment: check_loop unused
+exit 00000034
+
+Symbol: exit
+   Definitions
+      At line 47 in file bubble.s
+   Uses
+      None
+Comment: exit unused
+extern_loop 00000010
+
+Symbol: extern_loop
+   Definitions
+      At line 19 in file bubble.s
+   Uses
+      At line 46 in file bubble.s
+Comment: extern_loop used once
+main_loop 00000018
+
+Symbol: main_loop
+   Definitions
+      At line 24 in file bubble.s
+   Uses
+      At line 42 in file bubble.s
+Comment: main_loop used once
+mem_fill 00000008
+
+Symbol: mem_fill
+   Definitions
+      At line 12 in file bubble.s
+   Uses
+      At line 16 in file bubble.s
+Comment: mem_fill used once
+skip_swap 00000026
+
+Symbol: skip_swap
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 36 in file bubble.s
+   Uses
+      At line 32 in file bubble.s
+Comment: skip_swap used once
+8 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 5 in file bubble.s
+   Uses
+      At line 11 in file bubble.s
+      At line 22 in file bubble.s
+
+1 symbol
+346 symbols in table
