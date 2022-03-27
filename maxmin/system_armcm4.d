@@ -1,0 +1,9 @@
+.\system_armcm4.o: RTE\Device\ARMCM4_FP\system_ARMCM4.c
+.\system_armcm4.o: C:\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM4\Include\ARMCM4_FP.h
+.\system_armcm4.o: C:\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h
+.\system_armcm4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\system_armcm4.o: C:\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h
+.\system_armcm4.o: C:\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h
+.\system_armcm4.o: C:\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h
+.\system_armcm4.o: C:\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv7.h
+.\system_armcm4.o: C:\Users\Pyrkaulos\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\Device\ARM\ARMCM4\Include\system_ARMCM4.h
